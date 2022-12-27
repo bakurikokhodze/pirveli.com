@@ -18,15 +18,15 @@ const Header: React.FC = () => {
   const [userInfo, setUserInfo] = useState<any>({});
   const [isOpenDropdown, setIsOpenDropdown] = useState<boolean>(false);
 
-  // axios.interceptors.request.use((config) => {
-  //   config.headers = {
-  //     ...config.headers,
-  //     'Access-Control-Allow-Origin': '*',
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzRUNseXdhVnNxOURBMU1oMElNLTVFTUNsRU5WM1FMTnhuNlh1bDJoOVBnIn0.eyJleHAiOjE2NzIxNzg2OTksImlhdCI6MTY3MjE0MjcxNSwiYXV0aF90aW1lIjoxNjcyMTQyNjk5LCJqdGkiOiJkMjdhODUwYy02NTgzLTQwMWEtYjlhZi03MGRiNGQ2YTdjNzEiLCJpc3MiOiJodHRwczovL2F1dGgucGlydmVsaS5jb20vcmVhbG1zL3hyYWNvb24tZGVtbyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiODRjNTI0NC0yMWZlLTQ5OWItYWIyYy1jMjBiM2Y4ZjUxOTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjcy1jYXJ0Iiwic2Vzc2lvbl9zdGF0ZSI6IjVlNzc5ZDdlLTJlMTctNDczNy05ZWNjLTNmN2EzNzRlYzBkZSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy14cmFjb29uLWRlbW8iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiNWU3NzlkN2UtMmUxNy00NzM3LTllY2MtM2Y3YTM3NGVjMGRlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInVzZXJfaWQiOiJiODRjNTI0NC0yMWZlLTQ5OWItYWIyYy1jMjBiM2Y4ZjUxOTQiLCJuYW1lIjoiTmFtZUdFTyBOYW1lR0VPIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiay5wdXJ0c2VsYWR6ZTFAb3B0aW1vZ3JvdXAuaW8iLCJnaXZlbl9uYW1lIjoiTmFtZUdFTyIsImZhbWlseV9uYW1lIjoiTmFtZUdFTyIsImVtYWlsIjoiay5wdXJ0c2VsYWR6ZTFAb3B0aW1vZ3JvdXAuaW8ifQ.BrQ7kHxX3TBqYVrLmMlKGhBbk2NMM-hotwJQ6XO-aZHiSyhsZ6rJ_6JsaX__yNbtyAOjckP2o_oFdi_qjNjVhKfVF_k46-Ntbm3Cr8rOfQF26ziBHd5phXroK-Dj7ImkjDGNHYeLUM49a2HpZrCLfYgAb9PYRTR1TUDfHrm5FFZml6gn5xyzWxFTWo7acSaaU2hpqzN7jfOz4QD6tr9slMgFA-7hL2m_hbrwydH4_39Kv0_r23Mwu_M3vlfFZdpWs_GjIgnJPMaBtrKSB9Ghy6riPzaACFDP40Ri1fIfayVmELdCLWz7gFFaBi6O9afl7OrE5CsXysuBQQwoihNRuQ`
-  //   };
-  //   return config;
-  // });
+  axios.interceptors.request.use((config) => {
+    config.headers = {
+      ...config.headers,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzRUNseXdhVnNxOURBMU1oMElNLTVFTUNsRU5WM1FMTnhuNlh1bDJoOVBnIn0.eyJleHAiOjE2NzIxNzg2OTksImlhdCI6MTY3MjE0MjcxNSwiYXV0aF90aW1lIjoxNjcyMTQyNjk5LCJqdGkiOiJkMjdhODUwYy02NTgzLTQwMWEtYjlhZi03MGRiNGQ2YTdjNzEiLCJpc3MiOiJodHRwczovL2F1dGgucGlydmVsaS5jb20vcmVhbG1zL3hyYWNvb24tZGVtbyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiODRjNTI0NC0yMWZlLTQ5OWItYWIyYy1jMjBiM2Y4ZjUxOTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjcy1jYXJ0Iiwic2Vzc2lvbl9zdGF0ZSI6IjVlNzc5ZDdlLTJlMTctNDczNy05ZWNjLTNmN2EzNzRlYzBkZSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy14cmFjb29uLWRlbW8iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiNWU3NzlkN2UtMmUxNy00NzM3LTllY2MtM2Y3YTM3NGVjMGRlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInVzZXJfaWQiOiJiODRjNTI0NC0yMWZlLTQ5OWItYWIyYy1jMjBiM2Y4ZjUxOTQiLCJuYW1lIjoiTmFtZUdFTyBOYW1lR0VPIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiay5wdXJ0c2VsYWR6ZTFAb3B0aW1vZ3JvdXAuaW8iLCJnaXZlbl9uYW1lIjoiTmFtZUdFTyIsImZhbWlseV9uYW1lIjoiTmFtZUdFTyIsImVtYWlsIjoiay5wdXJ0c2VsYWR6ZTFAb3B0aW1vZ3JvdXAuaW8ifQ.BrQ7kHxX3TBqYVrLmMlKGhBbk2NMM-hotwJQ6XO-aZHiSyhsZ6rJ_6JsaX__yNbtyAOjckP2o_oFdi_qjNjVhKfVF_k46-Ntbm3Cr8rOfQF26ziBHd5phXroK-Dj7ImkjDGNHYeLUM49a2HpZrCLfYgAb9PYRTR1TUDfHrm5FFZml6gn5xyzWxFTWo7acSaaU2hpqzN7jfOz4QD6tr9slMgFA-7hL2m_hbrwydH4_39Kv0_r23Mwu_M3vlfFZdpWs_GjIgnJPMaBtrKSB9Ghy6riPzaACFDP40Ri1fIfayVmELdCLWz7gFFaBi6O9afl7OrE5CsXysuBQQwoihNRuQ`
+    };
+    return config;
+  });
 
   const getChosenAvatar = () => {
 
@@ -84,6 +84,9 @@ const Header: React.FC = () => {
     </div>
   }
 
+  const downloadPdf = () => {
+    typeof window !== 'undefined' && window.open("http://s3.pirveli.com/v1/api/getFile?id=6554", '_blank');
+  }
 
   useEffect(() => {
 
@@ -97,11 +100,11 @@ const Header: React.FC = () => {
 
   useEffect(() => {
 
-    axios.get('https://vouchers.pirveli.com/api/user/user/detail-info').then((res) => {
-      setUserInfo(res.data)
-    }).catch((e) => {
-      console.log(e)
-    })
+    // axios.get('https://vouchers.pirveli.com/api/user/user/detail-info').then((res) => {
+    //   setUserInfo(res.data)
+    // }).catch((e) => {
+    //   console.log(e)
+    // })
 
 
   }, [])
@@ -129,7 +132,8 @@ const Header: React.FC = () => {
                 <p className={"text-purple"}>ვაუჩერები</p>
                 <div className={"absolute bg-purple w-full h-[4px] rounded-t-[5px] -bottom-[0px]"}/>
               </div>
-              <div className={"h-full flex items-center relative"}>
+              <div className={"h-full flex items-center relative"}
+                   onClick={() => downloadPdf()}>
                 <p className={"h-full flex items-center text-gray"}>კონტრაქტები</p>
               </div>
             </div>

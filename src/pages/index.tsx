@@ -13,21 +13,35 @@ import {Form, Input, Radio} from "antd";
 import {useRouter} from "next/router";
 import axios from "axios";
 import OrderItem from "../components/blocks/order-item";
+import _ from "lodash";
 
 export default function Vouchers() {
   const baseApi = process.env.baseApi;
   const [searchForm] = Form.useForm();
   const [orders, setOrders] = useState<any>([]);
   const [val, setVal] = useState<any>({});
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   const Router = useRouter();
 
   const getData = (data = null) => {
-    axios.get(`${baseApi}/providers/get-ordered-vouchers&isValid=${data?.status === 'active'}`).then((res) => {
-      setOrders(res.data)
-    }).catch(() => {
-      console.log("catch")
-    })
+
+    setOrders(null)
+    if (data?.status === 'all') {
+      axios.get(`${baseApi}/providers/get-own-vouchers`).then((res) => {
+        setOrders(res.data)
+      }).catch(() => {
+        console.log("catch")
+      })
+
+    } else if (data?.status === 'active') {
+      axios.get(`${baseApi}/providers/get-ordered-vouchers?isValid=false`).then((res) => {
+        setOrders(res.data)
+      }).catch(() => {
+        console.log("catch")
+      })
+    }
+
   }
 
   useEffect(() => {
@@ -173,9 +187,9 @@ export default function Vouchers() {
             <h2 className={"text-[32px] text-[#383838] font-bold"}>ვაუჩერები</h2>
             <div className={"space-y-[20px] h-[2000px] mt-[20px]"}>
               {
-                  Array.isArray(orders) && orders?.map((e: any, index) => {
+                  Array.isArray(orders) && _.get(orders, '[0]', 0) !== null && orders?.map((e: any, index) => {
                     // [1, 2, 3, 4].map((e: any, index) => {
-                    return <OrderItem data={e} key={index} evaluated={index % 2 == 0}/>
+                    return <OrderItem setRefresh={setRefresh} btn={val.status === 'active'} data={e} key={index} evaluated={index % 2 == 0}/>
                   })
               }
             </div>

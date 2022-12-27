@@ -3,12 +3,38 @@ import React, {useState} from 'react';
 import {ICONS, IMAGES} from "public/images";
 import dayjs from "dayjs";
 import Button from "../../UI/button";
+import {Modal} from "antd";
+import axios from "axios";
+import {ExclamationCircleOutlined} from '@ant-design/icons';
 
-const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
+const OrderItem = ({data, btn, setRefresh, evaluated, setIsModalOpen}: any) => {
 
   const [isEvaluated, setIsEvaluated] = useState<boolean>(evaluated);
   const dateFormat = 'DD.MM.YYYY';
-  console.log("data", data)
+  console.log("data", data, btn)
+
+  const confirm = (id: number) => {
+
+    Modal.confirm({
+      title: 'შეტყობინება',
+      icon: <ExclamationCircleOutlined/>,
+      content: 'ნადმვილად გსურთ შეკვეთის სტარტუსის შეცვლა',
+      okText: 'შეცვლა',
+      cancelText: 'გაუქმება',
+      className: "confirm",
+      onOk: () => changeStatus(id)
+    });
+
+  };
+
+  const changeStatus = (id: number) => {
+    axios.post('axios shemcrlii').then((res) => {
+      setRefresh(true)
+      console.log("res")
+    }).catch((e) => {
+      console.log('e', e)
+    })
+  }
 
   return <div
       className={"md:p-6 p-4  flex flex-col ph:flex-row md:flex-col md:gap-0 gap-[18px] bg-[#F7F7F7] rounded-0 md:rounded-2xl"}>
@@ -26,7 +52,7 @@ const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
 
       <div className={"flex flex-row md:flex-col items-center md:items-start "}>
         <p className={"text-[#38383899] "}>ღირებულება</p>
-        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{data.priceInGel}</span>
+        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{data?.priceInGel}</span>
       </div>
 
     </div>
@@ -50,10 +76,10 @@ const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
             დად ასუდოჰასიუდ ამფი პაფდჯ ას ს ა</p>
         </div>
 
-        <div className={""}>
-          <Button classes={"hidden md:flex"} bgColor={"#DB0060"} text={"გამოყენებული"}
-                  textColor={"white"}/>
-        </div>
+        {btn && <div className={""} onClick={() => confirm(1)}>
+					<Button classes={"hidden md:flex"} bgColor={"#DB0060"} text={"გამოყენებული"}
+					        textColor={"white"}/>
+				</div>}
 
       </div>
     </div>

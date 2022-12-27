@@ -56,3 +56,6 @@ body {
     width: 21px;
     height: 21px;
 }
+.ant-btn-primary{
+    background-color: #8338EC;
+}
