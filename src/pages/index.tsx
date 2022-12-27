@@ -18,15 +18,21 @@ export default function Vouchers() {
   const baseApi = process.env.baseApi;
   const [searchForm] = Form.useForm();
   const [orders, setOrders] = useState<any>([]);
+  const [val, setVal] = useState<any>({});
 
   const Router = useRouter();
 
-  useEffect(() => {
-    axios.get(`${baseApi}/orderebil`).then((res) => {
+  const getData = (data = null) => {
+    axios.get(`${baseApi}/providers/get-ordered-vouchers&isValid=${data?.status === 'active'}`).then((res) => {
       setOrders(res.data)
     }).catch(() => {
       console.log("catch")
     })
+  }
+
+  useEffect(() => {
+    getData()
+    onChange()
   }, [])
 
   const resetFields = () => {
@@ -38,9 +44,11 @@ export default function Vouchers() {
     resetFields();
   };
 
-  const onChange = (values: any) => {
+  const onChange = () => {
     let data = searchForm.getFieldsValue();
-    console.log(data)
+    setVal(data);
+    getData(data)
+
   }
 
   return (
@@ -62,7 +70,7 @@ export default function Vouchers() {
                 onChange={onChange}
                 onFinish={onFinish}
                 initialValues={{
-                  search: "ravi",
+                  search: "",
                   status: 'all'
                 }}
             >
@@ -90,18 +98,69 @@ export default function Vouchers() {
                 <div>
                   <Form.Item name="status">
                     <Radio.Group className={"flex flex-col space-y-[20px]"} size={"large"}>
-                      <Radio value={'all'} className={"text-gray"} type="primary">
-                        <p className={"text-[14px]"}>ყველა შეკვეთა</p>
-                      </Radio>
-                      <Radio value={"active"} className={"text-gray"}>
-                        <p className={"text-[14px]"}>აქტიური</p>
-                      </Radio>
-                      <Radio value={"used"} className={"text-gray"}>
-                        <p className={"text-[14px]"}>გამოყენებული</p>
-                      </Radio>
-                      <Radio value={"Expired"} className={"text-gray"}>
-                        <p className={"text-[14px]"}>ვადაგასული</p>
-                      </Radio>
+                      <div className={"flex justify-between"}>
+                        <Radio value={'all'} className={"text-gray l"} type="primary">
+                          <p className={"text-[14px]"}
+                             style={{
+                               color: val?.status === 'all' ? "#8338EC" : "#383838",
+                               transition: "0.3s linear all"
+                             }}
+                          >ვაუჩერები</p>
+                        </Radio>
+                        <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}
+                             style={{
+                               backgroundColor: val?.status === 'all' ? "#8338EC" : "#EDEEEF",
+                               transition: "0.3s linear all"
+                             }}
+                        >
+                          <p className={"text-[white] text-[12px]"}
+                             style={{
+                               color: val?.status === 'all' ? "#FFFFFF" : "#383838",
+                               transition: "0.3s linear all"
+                             }}
+                          >234</p>
+                        </div>
+                      </div>
+                      <div className={"flex justify-between"}>
+                        <Radio value={"active"} className={"text-gray"}>
+                          <p className={"text-[14px]"}
+                             style={{
+                               color: val?.status === 'active' ? "#8338EC" : "#383838",
+                               transition: "0.3s linear all"
+                             }}
+                          >აქტიური</p>
+                        </Radio>
+
+                        <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}
+                             style={{
+                               backgroundColor: val?.status === 'active' ? "#8338EC" : "#EDEEEF",
+                               transition: "0.3s linear all"
+                             }}
+                        >
+                          <p className={"text-[white] text-[12px]"}
+                             style={{
+                               color: val?.status === 'active' ? "#FFFFFF" : "#383838",
+                               transition: "0.3s linear all"
+                             }}
+                          >23</p>
+                        </div>
+                      </div>
+                      {/*<div className={"flex justify-between"}>*/}
+                      {/*  <Radio value={"used"} className={"text-gray"}>*/}
+                      {/*    <p className={"text-[14px]"}>გამოყენებული</p>*/}
+                      {/*  </Radio>*/}
+                      {/*  <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}>*/}
+                      {/*    <p className={"text-[white] text-[12px]"}>123</p>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
+                      {/*<div className={"flex justify-between"}>*/}
+                      {/*  <Radio value={"Expired"} className={"text-gray"}>*/}
+                      {/*    <p className={"text-[14px]"}>ვადაგასული</p>*/}
+                      {/*  </Radio>*/}
+                      {/*  <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}>*/}
+                      {/*    <p className={"text-[white] text-[12px]"}>123</p>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
                     </Radio.Group>
                   </Form.Item>
                 </div>
@@ -115,6 +174,7 @@ export default function Vouchers() {
             <div className={"space-y-[20px] h-[2000px] mt-[20px]"}>
               {
                   Array.isArray(orders) && orders?.map((e: any, index) => {
+                    // [1, 2, 3, 4].map((e: any, index) => {
                     return <OrderItem data={e} key={index} evaluated={index % 2 == 0}/>
                   })
               }

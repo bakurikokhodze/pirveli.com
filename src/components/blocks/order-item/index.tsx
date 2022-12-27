@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 // @ts-ignore
 import {ICONS, IMAGES} from "public/images";
 import dayjs from "dayjs";
+import Button from "../../UI/button";
 
 const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
 
@@ -10,27 +11,22 @@ const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
   console.log("data", data)
 
   return <div
-      className={"md:p-6 p-4 md:pr-[30px] flex flex-col ph:flex-row md:flex-col md:gap-0 gap-[18px] bg-[#F7F7F7] rounded-0 md:rounded-2xl"}>
+      className={"md:p-6 p-4  flex flex-col ph:flex-row md:flex-col md:gap-0 gap-[18px] bg-[#F7F7F7] rounded-0 md:rounded-2xl"}>
     <div
-        className={"md:order-1 order-2 w-full ph:w-[50%] md:w-full flex mb-0 md:mb-[30px] gap-[15px] md:gap-[0px] flex-col md:flex-row md:justify-between"}>
+        className={"md:order-1 order-2 w-full ph:w-[50%] md:w-full flex mb-0 md:mb-[24px] gap-[15px] md:gap-[0px] flex-col md:flex-row md:justify-between"}>
       <div className={"flex flex-row md:flex-col items-center md:items-start xl:w-[200px]"}>
-        <p className={"text-[#38383899] "}>Order Id</p>
-        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{data?.voucherId}</span>
+        <p className={"text-[#38383899] "}>შეკვეთის ID</p>
+        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>1234</span>
       </div>
       <div className={"flex flex-row md:flex-col items-center md:items-start "}>
-        <p className={"text-[#38383899] "}>Date</p>
+        <p className={"text-[#38383899] "}>დამატების თარიღი</p>
         <span
             className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{dayjs(data?.transactionDate).format(dateFormat).toString()}</span>
       </div>
 
       <div className={"flex flex-row md:flex-col items-center md:items-start "}>
-        <p className={"text-[#38383899] "}>Price</p>
-        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{data?.voucherPrice}</span>
-      </div>
-
-      <div className={"flex flex-row md:flex-col items-center md:items-start "}>
-        <p className={"text-[#38383899]"}>Earn Point</p>
-        <span className={"text-[#56971F] md:text-base text-sm ml-[6px] md:ml-0"}>{data?.earnedPoints}</span>
+        <p className={"text-[#38383899] "}>ღირებულება</p>
+        <span className={"text-[#383838] md:text-base text-sm ml-[6px] md:ml-0"}>{data.priceInGel}</span>
       </div>
 
     </div>
@@ -49,21 +45,15 @@ const OrderItem = ({data, evaluated, setIsModalOpen}: any) => {
 
       <div className={"flex flex-col md:flex-row justify-between items-start md:items-center w-full"}>
         <div className={"flex flex-col"}>
-          <h2 className={"text-[#383838] font-bold md:text-[22px] text-base mt-4 md:mt-0"}>{data?.providerTitle}</h2>
-          <p className={"text-base mt-2 text-[#38383899] max-w[464px] hidden md:flex"}>{data?.description}</p>
+          <h2 className={"text-[#383838] font-bold md:text-[22px] text-base mt-4 md:mt-0"}>{data?.title}</h2>
+          <p className={"text-base mt-2 text-[#38383899] max-w[464px] hidden md:flex"}>სზერხდტც ს სა საფყგვ სუბჰინჯომკ
+            დად ასუდოჰასიუდ ამფი პაფდჯ ას ს ა</p>
         </div>
-        {/*<div className={"ml-0 md:ml-[30px] md:mt-0 mt-2"}>*/}
-        {/*  {*/}
-        {/*    isEvaluated ? <Rate disabled defaultValue={4} className={"text-[16px] min-w-[120px] h-[20px] mb-1.5"}/> :*/}
-        {/*        <div onClick={() => {*/}
-        {/*          setIsModalOpen(true)*/}
-        {/*        }}>*/}
-        {/*          <Button classes={"hidden md:flex"} bgColor={"#DB0060"} text={"კომენტარის დამატება"}*/}
-        {/*                  textColor={"white"}/>*/}
-        {/*          <p className={"text-[#8338EC] text-base underline flex md:hidden"}>კომენტარის დამატება</p>*/}
-        {/*        </div>*/}
-        {/*  }*/}
-        {/*</div>*/}
+
+        <div className={""}>
+          <Button classes={"hidden md:flex"} bgColor={"#DB0060"} text={"გამოყენებული"}
+                  textColor={"white"}/>
+        </div>
 
       </div>
     </div>
