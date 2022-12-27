@@ -51,3 +51,8 @@ body {
     width: 21px;
     height: 21px;
 }
+
+.search .ant-radio-inner {
+    width: 21px;
+    height: 21px;
+}
