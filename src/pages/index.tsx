@@ -121,19 +121,19 @@ export default function Vouchers() {
                              }}
                           >ვაუჩერები</p>
                         </Radio>
-                        <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}
-                             style={{
-                               backgroundColor: val?.status === 'all' ? "#8338EC" : "#EDEEEF",
-                               transition: "0.3s linear all"
-                             }}
-                        >
-                          <p className={"text-[white] text-[12px]"}
-                             style={{
-                               color: val?.status === 'all' ? "#FFFFFF" : "#383838",
-                               transition: "0.3s linear all"
-                             }}
-                          >234</p>
-                        </div>
+                        {/*<div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}*/}
+                        {/*     style={{*/}
+                        {/*       backgroundColor: val?.status === 'all' ? "#8338EC" : "#EDEEEF",*/}
+                        {/*       transition: "0.3s linear all"*/}
+                        {/*     }}*/}
+                        {/*>*/}
+                        {/*  <p className={"text-[white] text-[12px]"}*/}
+                        {/*     style={{*/}
+                        {/*       color: val?.status === 'all' ? "#FFFFFF" : "#383838",*/}
+                        {/*       transition: "0.3s linear all"*/}
+                        {/*     }}*/}
+                        {/*  >234</p>*/}
+                        {/*</div>*/}
                       </div>
                       <div className={"flex justify-between"}>
                         <Radio value={"active"} className={"text-gray"}>
@@ -145,19 +145,19 @@ export default function Vouchers() {
                           >აქტიური</p>
                         </Radio>
 
-                        <div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}
-                             style={{
-                               backgroundColor: val?.status === 'active' ? "#8338EC" : "#EDEEEF",
-                               transition: "0.3s linear all"
-                             }}
-                        >
-                          <p className={"text-[white] text-[12px]"}
-                             style={{
-                               color: val?.status === 'active' ? "#FFFFFF" : "#383838",
-                               transition: "0.3s linear all"
-                             }}
-                          >23</p>
-                        </div>
+                        {/*<div className={"bg-purple px-[12px] flex items-center rounded-[100px] h-[25px]"}*/}
+                        {/*     style={{*/}
+                        {/*       backgroundColor: val?.status === 'active' ? "#8338EC" : "#EDEEEF",*/}
+                        {/*       transition: "0.3s linear all"*/}
+                        {/*     }}*/}
+                        {/*>*/}
+                        {/*  <p className={"text-[white] text-[12px]"}*/}
+                        {/*     style={{*/}
+                        {/*       color: val?.status === 'active' ? "#FFFFFF" : "#383838",*/}
+                        {/*       transition: "0.3s linear all"*/}
+                        {/*     }}*/}
+                        {/*  >23</p>*/}
+                        {/*</div>*/}
                       </div>
                       {/*<div className={"flex justify-between"}>*/}
                       {/*  <Radio value={"used"} className={"text-gray"}>*/}

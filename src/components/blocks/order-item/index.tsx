@@ -61,7 +61,7 @@ const OrderItem = ({data, btn, setRefresh, evaluated, setIsModalOpen}: any) => {
 
       <div
           className={"w-full flex max-w-full min-w-full min-h-full ph:max-w-[150px] ph:max-h-[200px] ph:min-h-[114px] md:max-w-[240px] md:min-w-[240px] md:max-h-[150px] md:mr-[30px]"}>
-        <img src={IMAGES.offerItem.src}
+        <img src={data.attachmentDTO.path}
              placeholder="blur"
              alt={"product image"}
              className={"rounded-xl"}
