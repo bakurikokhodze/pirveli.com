@@ -7,11 +7,19 @@ interface IHome {
 
 function search({color, classes, width = 13, height = 14}: IHome) {
   return (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-            d="M19 19L14.3448 14.3448L19 19ZM1 8.75862C1 4.47365 4.47365 1 8.75862 1C13.0436 1 16.5172 4.47365 16.5172 8.75862C16.5172 13.0436 13.0436 16.5172 8.75862 16.5172C4.47365 16.5172 1 13.0436 1 8.75862Z"
-            stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_3277_6317)">
+          <path
+              d="M21 21L16.3448 16.3448L21 21ZM3 10.7586C3 6.47365 6.47365 3 10.7586 3C15.0436 3 18.5172 6.47365 18.5172 10.7586C18.5172 15.0436 15.0436 18.5172 10.7586 18.5172C6.47365 18.5172 3 15.0436 3 10.7586Z"
+              stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_3277_6317">
+            <rect width="24" height="24" fill="white"/>
+          </clipPath>
+        </defs>
       </svg>
+
 
   );
 }

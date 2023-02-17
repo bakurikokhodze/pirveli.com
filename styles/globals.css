@@ -2,15 +2,23 @@
 @tailwind utilities;
 @tailwind components;
 
-#__next {
-    background-color: #EDEEEF;
-    /*height: 100%;*/
-    display: flex;
-    flex-direction: column;
+body {
+    background-color: #edeeef;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-body {
-    background-color: #EDEEEF;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.avenirMedium {
+    font-family: avenirMedium, serif;
+}
+
+.avenirBold:lang(eng) {
+    font-family: avenirBold, serif;
 }
 
 .textDots1 {
@@ -42,20 +50,81 @@ body {
 }
 
 .container, .con {
-    max-width: 1372px !important;
+    max-width: 1594px !important;
+    margin: 0 auto;
 }
 
-.search .ant-radio-checked .ant-radio-inner {
-    border-color: #8338EC;
-    background-color: #8338EC;
-    width: 21px;
-    height: 21px;
+.transition1 {
+    transition: .1s linear all;
+}
+
+.transition2 {
+    transition: .2s linear all;
+}
+
+.transition3 {
+    transition: .3s linear all;
+}
+
+.transition4 {
+    transition: .4s linear all;
+}
+
+.transition5 {
+    transition: .5s linear all;
+}
+
+.transition6 {
+    transition: .6s linear all;
 }
 
 .search .ant-radio-inner {
     width: 21px;
     height: 21px;
 }
-.ant-btn-primary{
-    background-color: #8338EC;
+
+.clearCollapse {
+    background-color: unset !important;
+    border: unset !important;
+}
+
+.clearCollapse .ant-collapse-item {
+    border: none;
+}
+
+.clearCollapse .ant-collapse-header {
+    padding: 0 !important;
+    flex-direction: row-reverse;
+    height: 24px;
+}
+
+.clearCollapse .ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.pulse {
+    border-radius: 12px;
+    background-color: #DB0060;
+    animation: pulseAnimation 1s linear infinite;
+}
+
+
+
+@keyframes pulseAnimation {
+    0% {
+        box-shadow: 0 0 0 0 #DB0060;
+        background-color: #DB0060;
+    }
+    40% {
+        box-shadow: 0 0 0 10px rgba(255, 26, 67, 0);
+        background-color: #f5006b;
+    }
+    80% {
+        box-shadow: 0 0 0 20px rgba(255, 206, 67, 0);
+        background-color: #f5006b;
+    }
+    100% {
+        background-color: #DB0060;
+        box-shadow: 0 0 0 rgba(255, 206, 67, 0);
+    }
 }

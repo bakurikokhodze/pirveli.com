@@ -25,29 +25,61 @@ export {default as trash} from './trash.svg';
 export {default as x} from './x.svg';
 export {default as tbc} from './tbc.svg';
 export {default as bog} from './bog.svg';
-export {default as settings} from './settings.svg';
-export {default as ecomerce} from './ecomerce.svg';
-export {default as medical} from './medical.svg';
-export {default as lotto} from './lotto.svg';
-export {default as menuPercent} from './menuPercent.svg';
-export {default as whoWeAre} from './whoWeAre.svg';
 export {default as contactUs} from './contactUs.svg';
-export {default as faq} from './faq.svg';
-export {default as flash} from './flash.svg';
-export {default as gift} from './gift.svg';
-export {default as tc} from './tc.svg';
-export {default as logOut} from './logOut.svg';
-export {default as orders} from './orders.svg';
-export {default as leaderboard} from './leaderboard.svg';
-export {default as tickets} from './tickets.svg';
+export {default as logout2} from './logOut.svg';
 export {default as arrowBack} from './arrowBack.svg';
-export {default as advertisement} from './advertisement.svg';
-export {default as partnership} from './partnership.svg';
-export {default as privacy} from './privacy.svg';
 export {default as geoFlag} from './geoFlag.svg';
+export {default as footerFb} from './footer/fb.svg';
+export {default as footerIn} from './footer/in.svg';
+export {default as footerTk} from './footer/tk.svg';
+export {default as footerYo} from './footer/youtube.svg';
+export {default as footerPhone} from './footer/phone.svg';
+export {default as footerMail} from './footer/mail.svg';
+export {default as footerLocation} from './footer/location.svg';
+export {default as footerLinkd} from './footer/linkd.svg';
+export {default as swiperArrowLeft} from './swiperArrowLeft.svg';
+export {default as swiperArrowRight} from './swiperArrowRight.svg';
+export {default as card} from './card.svg';
+export {default as cardBlack} from './cardBlack.svg';
+export {default as frame} from './frame.svg';
+export {default as frameBlack} from './frameBlack.svg';
+export {default as plus} from './plus.svg';
+export {default as lariLine} from './lariLine.svg';
+export {default as delete} from './delete.svg';
+export {default as tickets} from './tickets.svg';
 
 export {default as liderboard} from './menu/liderboard.svg';
 export {default as logout} from './menu/logout.svg';
 export {default as order} from './menu/order.svg';
+export {default as ecommerce} from './menu/ecommerce.svg';
+export {default as lottery} from './menu/lottery.svg';
+export {default as games} from './menu/games.svg';
+export {default as medical} from './menu/medical.svg';
+export {default as info} from './menu/info.svg';
+export {default as partnership} from './menu/partnership.svg';
+export {default as job} from './menu/job.svg';
+export {default as document} from './menu/document.svg';
+export {default as faq} from './menu/faq.svg';
+export {default as fbMenu} from './menu/fb.svg';
+export {default as instaMenu} from './menu/insta.svg';
+export {default as youtube} from './menu/youtube.svg';
+export {default as link} from './menu/link.svg';
+export {default as phoneMenu} from './menu/phone.svg';
+export {default as email} from './menu/email.svg';
+export {default as locationMenu} from './menu/location.svg';
+export {default as blog} from './menu/blog.svg';
+export {default as settings} from './menu/settings.svg';
+
+//checkout
+export {default as mc} from './checkout/mc.svg';
+export {default as visa} from './checkout/visa.svg';
+export {default as amex} from './checkout/amex.svg';
+
+
+
+
+
+
+
 
 

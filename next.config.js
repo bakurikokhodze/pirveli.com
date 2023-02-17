@@ -18,19 +18,11 @@ const nextConfig = {
 		formats:['image/avif','image/webp'],
 	},
 	env:{
-		// for local
-		// baseApi:"http://accounting.pirveli.com/api/racoon-transactions",
-		// for server
-		baseApi:"https://vouchers.pirveli.com/api/racoon-transactions",
+		baseUrl:"https://pirveli.com",
+		baseApi:"https://pirveli.com/api",
+		regLink:'https://auth.pirveli.com/realms/xracoon-demo/protocol/openid-connect/registrations?client_id=demo-client&response_type=code&scope=email&redirect_uri=https://pirveli.com/main/page',
+		profileLink:'https://profile.pirveli.com',
 	}
-	// env:{
-	//
-	//   // for local
-	//   // baseApi:"http://accounting.pirveli.ge/api/racoon-transactions",
-	//
-	//   // for server
-	//   baseApi:"https://vouchers.pirveli.ge/api/racoon-transactions",
-	// }
 }
 
 module.exports = nextConfig
